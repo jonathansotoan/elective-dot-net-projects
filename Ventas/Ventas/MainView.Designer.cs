@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIdFactura = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,13 +50,15 @@
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.btnGuardarFactura = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtgrDetallesFacturas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 12);
+            this.label1.Location = new System.Drawing.Point(13, 424);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 0;
@@ -63,15 +66,15 @@
             // 
             // txtIdFactura
             // 
-            this.txtIdFactura.Location = new System.Drawing.Point(142, 12);
+            this.txtIdFactura.Location = new System.Drawing.Point(78, 421);
             this.txtIdFactura.Name = "txtIdFactura";
-            this.txtIdFactura.Size = new System.Drawing.Size(121, 20);
+            this.txtIdFactura.Size = new System.Drawing.Size(200, 20);
             this.txtIdFactura.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(51, 53);
+            this.label2.Location = new System.Drawing.Point(51, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 2;
@@ -85,14 +88,14 @@
             "Arroz",
             "Frijoles",
             "Papas"});
-            this.cmbProducto.Location = new System.Drawing.Point(142, 53);
+            this.cmbProducto.Location = new System.Drawing.Point(142, 19);
             this.cmbProducto.Name = "cmbProducto";
             this.cmbProducto.Size = new System.Drawing.Size(121, 21);
             this.cmbProducto.TabIndex = 3;
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(142, 95);
+            this.txtPrecio.Location = new System.Drawing.Point(142, 61);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(121, 20);
             this.txtPrecio.TabIndex = 5;
@@ -100,7 +103,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(51, 95);
+            this.label3.Location = new System.Drawing.Point(51, 61);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 4;
@@ -108,7 +111,7 @@
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(142, 135);
+            this.txtCantidad.Location = new System.Drawing.Point(142, 101);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(121, 20);
             this.txtCantidad.TabIndex = 7;
@@ -116,7 +119,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(51, 135);
+            this.label4.Location = new System.Drawing.Point(51, 101);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 6;
@@ -124,7 +127,7 @@
             // 
             // txtValorTotal
             // 
-            this.txtValorTotal.Location = new System.Drawing.Point(142, 177);
+            this.txtValorTotal.Location = new System.Drawing.Point(142, 143);
             this.txtValorTotal.Name = "txtValorTotal";
             this.txtValorTotal.Size = new System.Drawing.Size(121, 20);
             this.txtValorTotal.TabIndex = 9;
@@ -132,7 +135,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(51, 177);
+            this.label5.Location = new System.Drawing.Point(51, 143);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 13);
             this.label5.TabIndex = 8;
@@ -140,7 +143,7 @@
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(279, 95);
+            this.btnCalcular.Location = new System.Drawing.Point(327, 59);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(75, 23);
             this.btnCalcular.TabIndex = 10;
@@ -150,7 +153,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(54, 222);
+            this.btnAgregar.Location = new System.Drawing.Point(54, 188);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 11;
@@ -160,7 +163,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(142, 222);
+            this.btnEliminar.Location = new System.Drawing.Point(142, 188);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 12;
@@ -170,15 +173,15 @@
             // dtgrDetallesFacturas
             // 
             this.dtgrDetallesFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgrDetallesFacturas.Location = new System.Drawing.Point(16, 278);
+            this.dtgrDetallesFacturas.Location = new System.Drawing.Point(16, 244);
             this.dtgrDetallesFacturas.Name = "dtgrDetallesFacturas";
-            this.dtgrDetallesFacturas.Size = new System.Drawing.Size(338, 150);
+            this.dtgrDetallesFacturas.Size = new System.Drawing.Size(446, 150);
             this.dtgrDetallesFacturas.TabIndex = 13;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 458);
+            this.label6.Location = new System.Drawing.Point(13, 461);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 13);
             this.label6.TabIndex = 14;
@@ -186,7 +189,7 @@
             // 
             // dtFecha
             // 
-            this.dtFecha.Location = new System.Drawing.Point(63, 458);
+            this.dtFecha.Location = new System.Drawing.Point(78, 461);
             this.dtFecha.Name = "dtFecha";
             this.dtFecha.Size = new System.Drawing.Size(200, 20);
             this.dtFecha.TabIndex = 15;
@@ -194,7 +197,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 504);
+            this.label7.Location = new System.Drawing.Point(13, 507);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 16;
@@ -208,21 +211,21 @@
             "Bogotá",
             "Envigado",
             "Bello"});
-            this.cmbCiudad.Location = new System.Drawing.Point(63, 504);
+            this.cmbCiudad.Location = new System.Drawing.Point(78, 507);
             this.cmbCiudad.Name = "cmbCiudad";
             this.cmbCiudad.Size = new System.Drawing.Size(200, 21);
             this.cmbCiudad.TabIndex = 17;
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(269, 505);
+            this.txtTotal.Location = new System.Drawing.Point(284, 508);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(100, 20);
             this.txtTotal.TabIndex = 18;
             // 
             // btnGuardarFactura
             // 
-            this.btnGuardarFactura.Location = new System.Drawing.Point(142, 542);
+            this.btnGuardarFactura.Location = new System.Drawing.Point(142, 545);
             this.btnGuardarFactura.Name = "btnGuardarFactura";
             this.btnGuardarFactura.Size = new System.Drawing.Size(103, 23);
             this.btnGuardarFactura.TabIndex = 19;
@@ -233,17 +236,21 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(298, 489);
+            this.label8.Location = new System.Drawing.Point(313, 492);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(42, 13);
             this.label8.TabIndex = 20;
             this.label8.Text = "TOTAL";
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 575);
+            this.ClientSize = new System.Drawing.Size(476, 575);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnGuardarFactura);
             this.Controls.Add(this.txtTotal);
@@ -268,6 +275,7 @@
             this.Name = "MainView";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dtgrDetallesFacturas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,6 +304,7 @@
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Button btnGuardarFactura;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
 
