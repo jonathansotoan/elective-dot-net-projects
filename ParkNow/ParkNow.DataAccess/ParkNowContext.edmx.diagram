@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f11c4c55173a436f8b678f38d73149df" Name="Diagram1" >
+        <EntityTypeShape EntityType="ParkNow.DataAccess.Context.User" Width="1.5" PointX="6.125" PointY="3.5" />
+        <EntityTypeShape EntityType="ParkNow.DataAccess.Context.Vehicle" Width="1.5" PointX="2.375" PointY="0.5" />
+        <EntityTypeShape EntityType="ParkNow.DataAccess.Context.Parking" Width="1.5" PointX="6" PointY="0.5" />
+        <AssociationConnector Association="ParkNow.DataAccess.Context.VehicleParking" />
+        <AssociationConnector Association="ParkNow.DataAccess.Context.EmployeeParking" />
+        <EntityTypeShape EntityType="ParkNow.DataAccess.Context.Motorcicle" Width="1.5" PointX="0.875" PointY="3.625" />
+        <InheritanceConnector EntityType="ParkNow.DataAccess.Context.Motorcicle" />
+        <EntityTypeShape EntityType="ParkNow.DataAccess.Context.Car" Width="1.5" PointX="3.75" PointY="3.625" />
+        <InheritanceConnector EntityType="ParkNow.DataAccess.Context.Car" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

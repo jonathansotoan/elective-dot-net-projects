@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkNow.UI", "ParkNow.UI\ParkNow.UI.csproj", "{D7D37280-17D1-4EDB-BB59-1A9B9017FC9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkNow.Domain", "ParkNow.Domain\ParkNow.Domain.csproj", "{17792234-E7A7-4C95-ABAB-3A575AF49911}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkNow.DataAccess", "ParkNow.DataAccess\ParkNow.DataAccess.csproj", "{47EDD7BE-D908-462A-8570-D4906AD89717}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7D37280-17D1-4EDB-BB59-1A9B9017FC9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7D37280-17D1-4EDB-BB59-1A9B9017FC9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7D37280-17D1-4EDB-BB59-1A9B9017FC9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7D37280-17D1-4EDB-BB59-1A9B9017FC9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17792234-E7A7-4C95-ABAB-3A575AF49911}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17792234-E7A7-4C95-ABAB-3A575AF49911}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17792234-E7A7-4C95-ABAB-3A575AF49911}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17792234-E7A7-4C95-ABAB-3A575AF49911}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47EDD7BE-D908-462A-8570-D4906AD89717}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47EDD7BE-D908-462A-8570-D4906AD89717}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47EDD7BE-D908-462A-8570-D4906AD89717}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47EDD7BE-D908-462A-8570-D4906AD89717}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

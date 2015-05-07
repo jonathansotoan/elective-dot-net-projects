@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ParkNowContext.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ParkNowContextStoreContainer">
+    <EntitySet Name="Users" EntityType="ParkNowContext.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Vehicles" EntityType="ParkNowContext.Store.Vehicles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Parkings" EntityType="ParkNowContext.Store.Parkings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Vehicles_Motorcicle" EntityType="ParkNowContext.Store.Vehicles_Motorcicle" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Vehicles_Car" EntityType="ParkNowContext.Store.Vehicles_Car" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="VehicleParking" Association="ParkNowContext.Store.VehicleParking">
+      <End Role="Vehicle" EntitySet="Vehicles" />
+      <End Role="Parking" EntitySet="Parkings" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeParking" Association="ParkNowContext.Store.EmployeeParking">
+      <End Role="Employee" EntitySet="Users" />
+      <End Role="Parking" EntitySet="Parkings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Motorcicle_inherits_Vehicle" Association="ParkNowContext.Store.FK_Motorcicle_inherits_Vehicle">
+      <End Role="Vehicle" EntitySet="Vehicles" />
+      <End Role="Motorcicle" EntitySet="Vehicles_Motorcicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Car_inherits_Vehicle" Association="ParkNowContext.Store.FK_Car_inherits_Vehicle">
+      <End Role="Vehicle" EntitySet="Vehicles" />
+      <End Role="Car" EntitySet="Vehicles_Car" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Role" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vehicles">
+    <Key>
+      <PropertyRef Name="Plate" />
+    </Key>
+    <Property Name="Plate" Type="nchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="6" />
+  </EntityType>
+  <EntityType Name="Parkings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InDate" Type="datetime" Nullable="false" />
+    <Property Name="OutDate" Type="datetime" Nullable="true" />
+    <Property Name="Vehicle_Plate" Type="nchar" MaxLength="6" Nullable="false" />
+    <Property Name="Employee_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vehicles_Motorcicle">
+    <Key>
+      <PropertyRef Name="Plate" />
+    </Key>
+    <Property Name="Plate" Type="nchar" Nullable="false" MaxLength="6" />
+  </EntityType>
+  <EntityType Name="Vehicles_Car">
+    <Key>
+      <PropertyRef Name="Plate" />
+    </Key>
+    <Property Name="Plate" Type="nchar" Nullable="false" MaxLength="6" />
+  </EntityType>
+  <Association Name="VehicleParking">
+    <End Role="Vehicle" Type="ParkNowContext.Store.Vehicles" Multiplicity="1" />
+    <End Role="Parking" Type="ParkNowContext.Store.Parkings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="Plate" />
+      </Principal>
+      <Dependent Role="Parking">
+        <PropertyRef Name="Vehicle_Plate" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeParking">
+    <End Role="Employee" Type="ParkNowContext.Store.Users" Multiplicity="1" />
+    <End Role="Parking" Type="ParkNowContext.Store.Parkings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Parking">
+        <PropertyRef Name="Employee_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Motorcicle_inherits_Vehicle">
+    <End Role="Vehicle" Type="ParkNowContext.Store.Vehicles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Motorcicle" Type="ParkNowContext.Store.Vehicles_Motorcicle" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="Plate" />
+      </Principal>
+      <Dependent Role="Motorcicle">
+        <PropertyRef Name="Plate" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Car_inherits_Vehicle">
+    <End Role="Vehicle" Type="ParkNowContext.Store.Vehicles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Car" Type="ParkNowContext.Store.Vehicles_Car" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="Plate" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="Plate" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ParkNow.DataAccess.Context" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ParkNowContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="ParkNow.DataAccess.Context.User" />
+          <EntitySet Name="Vehicles" EntityType="ParkNow.DataAccess.Context.Vehicle" />
+          <EntitySet Name="Parkings" EntityType="ParkNow.DataAccess.Context.Parking" />
+          <AssociationSet Name="VehicleParking" Association="ParkNow.DataAccess.Context.VehicleParking">
+            <End Role="Vehicle" EntitySet="Vehicles" />
+            <End Role="Parking" EntitySet="Parkings" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeeParking" Association="ParkNow.DataAccess.Context.EmployeeParking">
+            <End Role="Employee" EntitySet="Users" />
+            <End Role="Parking" EntitySet="Parkings" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Parking" Relationship="ParkNow.DataAccess.Context.EmployeeParking" FromRole="Employee" ToRole="Parking" />
+          <Property Name="Role" Type="ParkNowContext.Role" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vehicle" Abstract="true">
+          <Key>
+            <PropertyRef Name="Plate" />
+          </Key>
+          <Property Name="Plate" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" FixedLength="true" MaxLength="6" />
+          <NavigationProperty Name="Parking" Relationship="ParkNow.DataAccess.Context.VehicleParking" FromRole="Vehicle" ToRole="Parking" />
+        </EntityType>
+        <EntityType Name="Parking">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Vehicle" Relationship="ParkNow.DataAccess.Context.VehicleParking" FromRole="Parking" ToRole="Vehicle" />
+          <NavigationProperty Name="Employee" Relationship="ParkNow.DataAccess.Context.EmployeeParking" FromRole="Parking" ToRole="Employee" />
+          <Property Name="InDate" Type="DateTime" Nullable="false" />
+          <Property Name="OutDate" Type="DateTime" Nullable="true" />
+        </EntityType>
+        <Association Name="VehicleParking">
+          <End Type="ParkNow.DataAccess.Context.Vehicle" Role="Vehicle" Multiplicity="1" />
+          <End Type="ParkNow.DataAccess.Context.Parking" Role="Parking" Multiplicity="*" />
+        </Association>
+        <Association Name="EmployeeParking">
+          <End Type="ParkNow.DataAccess.Context.User" Role="Employee" Multiplicity="1" />
+          <End Type="ParkNow.DataAccess.Context.Parking" Role="Parking" Multiplicity="*" />
+        </Association>
+        <EnumType Name="Role" UnderlyingType="Byte">
+          <Member Name="Employee" />
+          <Member Name="Administrator" />
+        </EnumType>
+        <EntityType Name="Motorcicle" BaseType="ParkNow.DataAccess.Context.Vehicle" />
+        <EntityType Name="Car" BaseType="ParkNow.DataAccess.Context.Vehicle" />
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ParkNowContextStoreContainer" CdmEntityContainer="ParkNowContext">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(ParkNow.DataAccess.Context.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicles">
+      <EntityTypeMapping TypeName="IsTypeOf(ParkNow.DataAccess.Context.Vehicle)">
+        <MappingFragment StoreEntitySet="Vehicles">
+          <ScalarProperty Name="Plate" ColumnName="Plate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ParkNow.DataAccess.Context.Motorcicle)">
+        <MappingFragment StoreEntitySet="Vehicles_Motorcicle">
+          <ScalarProperty Name="Plate" ColumnName="Plate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ParkNow.DataAccess.Context.Car)">
+        <MappingFragment StoreEntitySet="Vehicles_Car">
+          <ScalarProperty Name="Plate" ColumnName="Plate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parkings">
+      <EntityTypeMapping TypeName="IsTypeOf(ParkNow.DataAccess.Context.Parking)">
+        <MappingFragment StoreEntitySet="Parkings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InDate" ColumnName="InDate" />
+          <ScalarProperty Name="OutDate" ColumnName="OutDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="VehicleParking" TypeName="ParkNow.DataAccess.Context.VehicleParking" StoreEntitySet="Parkings">
+      <EndProperty Name="Vehicle">
+        <ScalarProperty Name="Plate" ColumnName="Vehicle_Plate" />
+      </EndProperty>
+      <EndProperty Name="Parking">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EmployeeParking" TypeName="ParkNow.DataAccess.Context.EmployeeParking" StoreEntitySet="Parkings">
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="Id" ColumnName="Employee_Id" />
+      </EndProperty>
+      <EndProperty Name="Parking">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
