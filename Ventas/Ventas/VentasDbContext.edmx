@@ -5,47 +5,47 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="VentasModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-  <EntityContainer Name="VentasModelStoreContainer">
-    <EntitySet Name="DetalleFacturas" EntityType="VentasModel.Store.DetalleFacturas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Facturas" EntityType="VentasModel.Store.Facturas" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="fk_detallefacturas_facturas" Association="VentasModel.Store.fk_detallefacturas_facturas">
-      <End Role="Facturas" EntitySet="Facturas" />
-      <End Role="DetalleFacturas" EntitySet="DetalleFacturas" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="DetalleFacturas">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdFactura" Type="int" Nullable="false" />
-    <Property Name="NombreProducto" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="Cantidad" Type="int" Nullable="false" />
-    <Property Name="Precio" Type="decimal" Nullable="false" Precision="18" Scale="1" />
-    <Property Name="Facturas_Id" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Facturas">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Fecha" Type="datetime" Nullable="false" />
-    <Property Name="ValorTotal" Type="decimal" Nullable="false" Precision="18" Scale="1" />
-    <Property Name="Ciudad" Type="varchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <Association Name="fk_detallefacturas_facturas">
-    <End Role="Facturas" Type="VentasModel.Store.Facturas" Multiplicity="1" />
-    <End Role="DetalleFacturas" Type="VentasModel.Store.DetalleFacturas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Facturas">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="DetalleFacturas">
-        <PropertyRef Name="Facturas_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+        <EntityContainer Name="VentasModelStoreContainer">
+          <EntitySet Name="DetalleFacturas" EntityType="VentasModel.Store.DetalleFacturas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Facturas" EntityType="VentasModel.Store.Facturas" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="fk_detallefacturas_facturas" Association="VentasModel.Store.fk_detallefacturas_facturas">
+            <End Role="Facturas" EntitySet="Facturas" />
+            <End Role="DetalleFacturas" EntitySet="DetalleFacturas" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="DetalleFacturas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdFactura" Type="int" Nullable="false" />
+          <Property Name="NombreProducto" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="Precio" Type="decimal" Nullable="false" Scale="1" />
+          <Property Name="Facturas_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Facturas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="ValorTotal" Type="decimal" Nullable="false" Scale="1" />
+          <Property Name="Ciudad" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="fk_detallefacturas_facturas">
+          <End Role="Facturas" Type="VentasModel.Store.Facturas" Multiplicity="1" />
+          <End Role="DetalleFacturas" Type="VentasModel.Store.DetalleFacturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facturas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DetalleFacturas">
+              <PropertyRef Name="Facturas_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="VentasModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -140,9 +140,9 @@
     <Diagrams>
       <Diagram Name="VentasDbContext">
         <EntityTypeShape EntityType="VentasModel.DetalleFacturas" Width="1.5" PointX="3" PointY="0.875" Height="2.1725878906250005" IsExpanded="true" />
-        <EntityTypeShape EntityType="VentasModel.Facturas" Width="1.5" PointX="0.75" PointY="1" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentasModel.Facturas" Width="1.5" PointX="0.875" PointY="1" Height="1.9802864583333335" IsExpanded="true" />
         <AssociationConnector Association="VentasModel.fk_detallefacturas_facturas" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="1.9901432291666668" />
+          <ConnectorPoint PointX="2.375" PointY="1.9901432291666668" />
           <ConnectorPoint PointX="3" PointY="1.9901432291666668" />
         </AssociationConnector>
       </Diagram>

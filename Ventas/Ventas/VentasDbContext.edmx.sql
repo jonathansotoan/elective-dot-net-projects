@@ -1,9 +1,9 @@
 
 -- --------------------------------------------------
--- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
+-- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 04/19/2015 10:01:20
--- Generated from EDMX file: C:\Users\w7\Desktop\Elective.net\Ventas\Ventas\VentasDbContext.edmx
+-- Date Created: 04/23/2015 06:11:47
+-- Generated from EDMX file: F:\VisualStudio\workspace\Elective.net\Ventas\Ventas\VentasDbContext.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -83,7 +83,6 @@ ADD CONSTRAINT [fk_detallefacturas_facturas]
     REFERENCES [dbo].[Facturas]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
 
 -- Creating non-clustered index for FOREIGN KEY 'fk_detallefacturas_facturas'
 CREATE INDEX [IX_fk_detallefacturas_facturas]
