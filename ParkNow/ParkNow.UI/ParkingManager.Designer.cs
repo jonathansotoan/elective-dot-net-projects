@@ -1,6 +1,6 @@
 ﻿namespace ParkNow.UI
 {
-    partial class MdiContainer
+    partial class ParkingManager
     {
         /// <summary>
         /// Required designer variable.
@@ -28,22 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // MdiContainer
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
-            this.IsMdiContainer = true;
-            this.Name = "MdiContainer";
-            this.Text = "ParkNow - Jonathan Soto";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.ResumeLayout(false);
-
+            this.Text = "ParkingManager";
         }
 
         #endregion
     }
 }
-

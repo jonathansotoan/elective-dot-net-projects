@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\workspaces\dotNet\ParkNow\ParkNow.DataAccess\ParkNowContext.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\aarroyave\Documents\JS\elective\ParkNow\ParkNow.DataAccess\ParkNowContext.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

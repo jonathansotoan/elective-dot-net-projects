@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using FormApplication = System.Windows.Forms.Application;
 
 namespace ParkNow.UI
 {
@@ -14,9 +11,9 @@ namespace ParkNow.UI
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MdiContainer());
+            FormApplication.EnableVisualStyles();
+            FormApplication.SetCompatibleTextRenderingDefault(false);
+            FormApplication.Run(new MainForm());
         }
     }
 }

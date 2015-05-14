@@ -1,24 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ParkNow.Application;
+using System;
 using System.Windows.Forms;
 
 namespace ParkNow.UI
 {
     public partial class Login : Form
     {
-        private ParkNow.DataAccess.
+        private readonly UserService _userService;
 
-        public Login(Form parent)
+        public Login(Form mdiParent)
         {
+            _userService = new UserService();
             InitializeComponent();
-            MdiParent = parent;
-            context
+            MdiParent = mdiParent;
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            errorProvider.Clear();
+
+            if (_userService.DoesUserExist(txtUsername.Text, txtPassword.Text))
+            {
+                Close();
+                new ParkingManager(MdiParent).Show();
+            }
+            else
+            {
+                errorProvider.SetError(btnLogin, "Your username/password pair is not right");
+            }
         }
     }
 }

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkNow.UI", "ParkNow.UI\ParkNow.UI.csproj", "{D7D37280-17D1-4EDB-BB59-1A9B9017FC9C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkNow.UI", "ParkNow.UI\ParkNow.UI.csproj", "{14D22772-23B8-4349-8309-FE37EE1ADBB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkNow.Domain", "ParkNow.Domain\ParkNow.Domain.csproj", "{17792234-E7A7-4C95-ABAB-3A575AF49911}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkNow.DataAccess", "ParkNow.DataAccess\ParkNow.DataAccess.csproj", "{9544C4BA-60EF-4E1B-9796-9E4A6FDEA2D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkNow.DataAccess", "ParkNow.DataAccess\ParkNow.DataAccess.csproj", "{47EDD7BE-D908-462A-8570-D4906AD89717}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkNow.Application", "ParkNow.Application\ParkNow.Application.csproj", "{7569CE0F-3FC2-47C4-8C7D-BE087D3EADBD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D7D37280-17D1-4EDB-BB59-1A9B9017FC9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7D37280-17D1-4EDB-BB59-1A9B9017FC9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7D37280-17D1-4EDB-BB59-1A9B9017FC9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D7D37280-17D1-4EDB-BB59-1A9B9017FC9C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{17792234-E7A7-4C95-ABAB-3A575AF49911}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{17792234-E7A7-4C95-ABAB-3A575AF49911}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{17792234-E7A7-4C95-ABAB-3A575AF49911}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{17792234-E7A7-4C95-ABAB-3A575AF49911}.Release|Any CPU.Build.0 = Release|Any CPU
-		{47EDD7BE-D908-462A-8570-D4906AD89717}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{47EDD7BE-D908-462A-8570-D4906AD89717}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{47EDD7BE-D908-462A-8570-D4906AD89717}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{47EDD7BE-D908-462A-8570-D4906AD89717}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14D22772-23B8-4349-8309-FE37EE1ADBB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14D22772-23B8-4349-8309-FE37EE1ADBB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14D22772-23B8-4349-8309-FE37EE1ADBB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14D22772-23B8-4349-8309-FE37EE1ADBB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9544C4BA-60EF-4E1B-9796-9E4A6FDEA2D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9544C4BA-60EF-4E1B-9796-9E4A6FDEA2D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9544C4BA-60EF-4E1B-9796-9E4A6FDEA2D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9544C4BA-60EF-4E1B-9796-9E4A6FDEA2D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7569CE0F-3FC2-47C4-8C7D-BE087D3EADBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7569CE0F-3FC2-47C4-8C7D-BE087D3EADBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7569CE0F-3FC2-47C4-8C7D-BE087D3EADBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7569CE0F-3FC2-47C4-8C7D-BE087D3EADBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
