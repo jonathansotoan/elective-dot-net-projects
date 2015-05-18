@@ -32,7 +32,9 @@
             this.txtVehiclePlate = new System.Windows.Forms.TextBox();
             this.btnSaveParking = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dtgrLastParkings = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrLastParkings)).BeginInit();
             this.SuspendLayout();
             // 
             // txtVehiclePlate
@@ -57,16 +59,26 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // dtgrLastParkings
+            // 
+            this.dtgrLastParkings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgrLastParkings.Location = new System.Drawing.Point(13, 284);
+            this.dtgrLastParkings.Name = "dtgrLastParkings";
+            this.dtgrLastParkings.Size = new System.Drawing.Size(240, 150);
+            this.dtgrLastParkings.TabIndex = 2;
+            // 
             // ParkingManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 279);
+            this.ClientSize = new System.Drawing.Size(530, 471);
+            this.Controls.Add(this.dtgrLastParkings);
             this.Controls.Add(this.btnSaveParking);
             this.Controls.Add(this.txtVehiclePlate);
             this.Name = "ParkingManager";
             this.Text = "ParkingManager";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrLastParkings)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -77,5 +89,6 @@
         private System.Windows.Forms.TextBox txtVehiclePlate;
         private System.Windows.Forms.Button btnSaveParking;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.DataGridView dtgrLastParkings;
     }
 }

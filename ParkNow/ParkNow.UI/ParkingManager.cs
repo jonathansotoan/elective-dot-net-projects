@@ -1,4 +1,5 @@
-﻿using ParkNow.Application;
+﻿using System.Collections.Generic;
+using ParkNow.Application;
 using ParkNow.DataAccess;
 using System;
 using System.Windows.Forms;
@@ -8,9 +9,13 @@ namespace ParkNow.UI
     public partial class ParkingManager : Form
     {
         private readonly ParkingService _parkingService;
+        private readonly List<Parking> _sessionParkings;
 
         public ParkingManager(Form mdiParent)
         {
+            _parkingService = new ParkingService();
+            _sessionParkings = new List<Parking>();
+
             InitializeComponent();
             MdiParent = mdiParent;
         }
@@ -25,10 +30,17 @@ namespace ParkNow.UI
                 return;
             }
 
-            _parkingService.InsertParking(new Parking {
+            var newParking = new Parking
+            {
                 InDate = DateTime.Now,
-                Vehicle = new Vehicle { Plate = txtVehiclePlate.Text }
-            });
+                Vehicle = new Vehicle {Plate = txtVehiclePlate.Text}
+            };
+
+            _parkingService.InsertParking(newParking);
+            _sessionParkings.Add(newParking);
+            dtgrLastParkings.DataSource = _sessionParkings;
         }
+
+        private void AddSessionParkings
     }
 }
