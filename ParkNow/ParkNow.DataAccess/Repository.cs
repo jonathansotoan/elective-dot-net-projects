@@ -11,22 +11,17 @@ namespace ParkNow.DataAccess
         public Repository(DbContext context)
         {
             _context = context;
+            _context.Configuration.LazyLoadingEnabled = false;
             _dbSet = context.Set<TEntity>();
         }
 
         public IQueryable<TEntity> Get(string includeProperties = "")
         {
-            IQueryable<TEntity> query = _dbSet;
-
-            foreach (string property in includeProperties.Trim().Split(','))
-            {
-                if (property != string.Empty)
-                {
-                    query.Include(property);
-                }
-            }
-
-            return query;
+            return includeProperties
+                    .Trim()
+                    .Split(',')
+                    .Where(property => property != string.Empty)
+                    .Aggregate<string, IQueryable<TEntity>>(_dbSet, (current, property) => current.Include(property));
         }
 
         public TEntity GetById(object id)
@@ -36,7 +31,7 @@ namespace ParkNow.DataAccess
 
         public TEntity Insert(TEntity entity)
         {
-            var insertedEntity = _dbSet.Add(entity);
+            TEntity insertedEntity = _dbSet.Add(entity);
             _context.SaveChanges();
 
             return insertedEntity;

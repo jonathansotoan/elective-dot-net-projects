@@ -37,10 +37,10 @@
         private void OpenEntranceReport(Parking parking)
         {
             var reportBody = new StringBuilder()
-                .Append("\nId:            ").Append(parking.Id)
-                .Append("\nEntrance time: ").Append(parking.InDate)
-                .Append("\nPlate:         ").Append(parking.VehiclePlate)
-                .Append("\nEmployee:      ").Append(parking.User);
+                .Append("\nId:                  ").Append(parking.Id)
+                .Append("\nEntrance time:       ").Append(parking.InDate)
+                .Append("\nPlate:               ").Append(parking.VehiclePlate)
+                .Append("\nEmployee:            ").Append(parking.User);
 
             new PdfService().OpenPdfReport("EntranceReport" + parking.Id + ".pdf", "Entrance Report of parking " + parking.Id, reportBody.ToString());
         }

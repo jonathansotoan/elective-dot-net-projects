@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using ParkNow.Application;
+﻿using ParkNow.Application;
 using ParkNow.DataAccess;
 using System;
-using System.Windows.Forms;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace ParkNow.UI
 {
@@ -21,7 +21,7 @@ namespace ParkNow.UI
             MdiParent = mdiParent;
         }
 
-        private void btnSaveParking_Click(object sender, System.EventArgs e)
+        private void btnSaveParking_Click(object sender, EventArgs e)
         {
             errorProvider.Clear();
 
@@ -39,7 +39,7 @@ namespace ParkNow.UI
 
             var newParking = new Parking
             {
-                Vehicle = new Vehicle { Plate = txtVehiclePlate.Text }
+                Vehicle = new Vehicle {Plate = txtVehiclePlate.Text}
             };
 
             _parkingService.InsertParking(newParking);

@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/18/2015 20:20:25
--- Generated from EDMX file: D:\workspaces\dotNet\elective-dot-net-projects\ParkNow\ParkNow.DataAccess\ParkNowContext.edmx
+-- Date Created: 05/19/2015 11:28:40
+-- Generated from EDMX file: C:\Users\aarroyave\Documents\JS\elective\ParkNow\ParkNow.DataAccess\ParkNowContext.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;

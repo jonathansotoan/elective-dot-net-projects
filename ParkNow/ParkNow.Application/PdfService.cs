@@ -7,11 +7,11 @@
     public class PdfService
     {
         private const int LineHeight = 20;
-        private const int SeparationBetweenTitleAndBody = 30;
+        private const int Margin = 30;
 
         public void OpenPdfReport(string filename, string title, string body)
         {
-            PdfDocument report = new PdfDocument();
+            var report = new PdfDocument();
             report.Info.Title = title;
 
             PdfPage page = report.AddPage();
@@ -24,7 +24,7 @@
 
             for (int lineIndex = 0; lineIndex < lines.Length; ++lineIndex)
             {
-                gfx.DrawString(lines[lineIndex], bodyFont, XBrushes.Black, new XRect(0, page.Height * 0.3 + SeparationBetweenTitleAndBody + lineIndex * LineHeight, page.Width, page.Height * 0.7), XStringFormats.TopLeft);
+                gfx.DrawString(lines[lineIndex], bodyFont, XBrushes.Black, new XRect(Margin, page.Height * 0.3 + Margin + lineIndex * LineHeight, page.Width - 2 * Margin, page.Height * 0.7), XStringFormats.TopLeft);
             }
 
             report.Save(filename);
