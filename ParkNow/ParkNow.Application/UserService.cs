@@ -1,5 +1,6 @@
-﻿using System.Linq;
-using ParkNow.DataAccess;
+﻿using ParkNow.DataAccess;
+using System;
+using System.Linq;
 
 namespace ParkNow.Application
 {
@@ -15,6 +16,7 @@ namespace ParkNow.Application
 
         public User GetLoggedUser()
         {
+            return _usersRepository.Get().First();
             return _loggedUser;
         }
 
@@ -23,7 +25,25 @@ namespace ParkNow.Application
             _loggedUser = loggedUser;
         }
 
-        public bool DoesUserExist(string username, string password)
+        public void LogIn(string username, string password)
+        {
+            var userToLogIn = new User
+            {
+                Username = username,
+                Password = password
+            };
+
+            if (DoesUserExist(username, password))
+            {
+                _loggedUser = userToLogIn;
+                return;
+            }
+
+            throw new Exception("Your username/password pair is not right");
+        }
+
+
+        private bool DoesUserExist(string username, string password)
         {
             return _usersRepository.Get().Any(user => user.Username == username && user.Password == password);
         }

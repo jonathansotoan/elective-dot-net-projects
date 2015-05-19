@@ -39,8 +39,10 @@
             // 
             // txtVehiclePlate
             // 
+            this.txtVehiclePlate.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtVehiclePlate.Font = new System.Drawing.Font("Microsoft Sans Serif", 100F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVehiclePlate.Location = new System.Drawing.Point(13, 31);
+            this.txtVehiclePlate.MaxLength = 6;
             this.txtVehiclePlate.Name = "txtVehiclePlate";
             this.txtVehiclePlate.Size = new System.Drawing.Size(500, 158);
             this.txtVehiclePlate.TabIndex = 0;
@@ -61,10 +63,16 @@
             // 
             // dtgrLastParkings
             // 
+            this.dtgrLastParkings.AllowUserToAddRows = false;
+            this.dtgrLastParkings.AllowUserToDeleteRows = false;
+            this.dtgrLastParkings.AllowUserToOrderColumns = true;
+            this.dtgrLastParkings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dtgrLastParkings.BackgroundColor = System.Drawing.SystemColors.WindowFrame;
             this.dtgrLastParkings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgrLastParkings.Location = new System.Drawing.Point(13, 284);
             this.dtgrLastParkings.Name = "dtgrLastParkings";
-            this.dtgrLastParkings.Size = new System.Drawing.Size(240, 150);
+            this.dtgrLastParkings.ReadOnly = true;
+            this.dtgrLastParkings.Size = new System.Drawing.Size(500, 150);
             this.dtgrLastParkings.TabIndex = 2;
             // 
             // ParkingManager

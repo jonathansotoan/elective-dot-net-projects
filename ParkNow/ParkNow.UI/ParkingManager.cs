@@ -3,6 +3,7 @@ using ParkNow.Application;
 using ParkNow.DataAccess;
 using System;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace ParkNow.UI
 {
@@ -30,17 +31,22 @@ namespace ParkNow.UI
                 return;
             }
 
+            if (!Regex.IsMatch(txtVehiclePlate.Text, "[A-Z]{3}[0-9]{3}"))
+            {
+                errorProvider.SetError(txtVehiclePlate, "The plate must have 3 letters and 3 numbers without spaces");
+                return;
+            }
+
             var newParking = new Parking
             {
-                InDate = DateTime.Now,
-                Vehicle = new Vehicle {Plate = txtVehiclePlate.Text}
+                Vehicle = new Vehicle { Plate = txtVehiclePlate.Text }
             };
 
             _parkingService.InsertParking(newParking);
             _sessionParkings.Add(newParking);
+
+            dtgrLastParkings.DataSource = null;
             dtgrLastParkings.DataSource = _sessionParkings;
         }
-
-        private void AddSessionParkings
     }
 }

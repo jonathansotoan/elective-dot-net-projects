@@ -7,26 +7,27 @@ namespace ParkNow.UI
     public partial class Login : Form
     {
         private readonly UserService _userService;
+        private readonly Form _parent;
 
         public Login(Form mdiParent)
         {
-            _userService = new UserService();
+            _userService = DependenciesContainer.UserService;
             InitializeComponent();
-            MdiParent = mdiParent;
+            MdiParent = _parent = mdiParent;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             errorProvider.Clear();
-
-            if (_userService.DoesUserExist(txtUsername.Text, txtPassword.Text))
+            try
             {
+                _userService.LogIn(txtUsername.Text, txtPassword.Text);
+                new ParkingManager(_parent).Show();
                 Close();
-                new ParkingManager(MdiParent).Show();
             }
-            else
+            catch (Exception exception)
             {
-                errorProvider.SetError(btnLogin, "Your username/password pair is not right");
+                errorProvider.SetError(btnLogin, exception.Message);
             }
         }
     }

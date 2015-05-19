@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using ParkNow.Application;
+using System.Windows.Forms;
 
 namespace ParkNow.UI
 {
@@ -9,9 +10,10 @@ namespace ParkNow.UI
         public MainForm()
         {
             InitializeComponent();
-            _loginForm = new Login(this);
-            _loginForm.Show();
-            _loginForm.Closed += (obj, eventArgs) => _loginForm = null;
+            //_loginForm = new Login(this);
+            //_loginForm.Show();
+            //_loginForm.Closed += (obj, eventArgs) => _loginForm = null;
+            new ParkingManager(this).Show();
         }
 
         private void logInToolStripMenuItem_Click(object sender, System.EventArgs e)

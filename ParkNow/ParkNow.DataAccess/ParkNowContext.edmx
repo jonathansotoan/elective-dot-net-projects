@@ -49,7 +49,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="InDate" Type="datetime" Nullable="false" />
-    <Property Name="OutDate" Type="datetime" Nullable="false" />
+    <Property Name="OutDate" Type="datetime" Nullable="true" />
     <Property Name="UserNationalId" Type="int" Nullable="false" />
     <Property Name="VehiclePlate" Type="nvarchar" Nullable="false" MaxLength="6" />
   </EntityType>
@@ -163,7 +163,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="InDate" Type="DateTime" Nullable="false" />
-          <Property Name="OutDate" Type="DateTime" Nullable="false" />
+          <Property Name="OutDate" Type="DateTime" Nullable="true" />
           <NavigationProperty Name="User" Relationship="ParkNow.Context.UserParking" FromRole="Parking" ToRole="User" />
           <Property Name="UserNationalId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Vehicle" Relationship="ParkNow.Context.VehicleParking" FromRole="Parking" ToRole="Vehicle" />

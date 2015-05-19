@@ -25,5 +25,11 @@ namespace ParkNow.DataAccess
         public Role Role { get; set; }
     
         public virtual ICollection<Parking> Parkings { get; set; }
+
+
+        public string ToString()
+        {
+            return string.Format("{{ National id: {0}, Username: {1}, Role: {2} }}", NationalId, Username, Role.ToString());
+        }
     }
 }

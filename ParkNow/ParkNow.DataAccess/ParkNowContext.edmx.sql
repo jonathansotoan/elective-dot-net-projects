@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/14/2015 06:12:40
--- Generated from EDMX file: C:\Users\aarroyave\Documents\JS\elective\ParkNow\ParkNow.DataAccess\ParkNowContext.edmx
+-- Date Created: 05/18/2015 20:20:25
+-- Generated from EDMX file: D:\workspaces\dotNet\elective-dot-net-projects\ParkNow\ParkNow.DataAccess\ParkNowContext.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -73,7 +73,7 @@ GO
 CREATE TABLE [dbo].[Parkings] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [InDate] datetime  NOT NULL,
-    [OutDate] datetime  NOT NULL,
+    [OutDate] datetime  NULL,
     [UserNationalId] int  NOT NULL,
     [VehiclePlate] nvarchar(6)  NOT NULL
 );

@@ -11,16 +11,19 @@ namespace ParkNow.DataAccess
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     
     public partial class Parking
     {
         public int Id { get; set; }
         public System.DateTime InDate { get; set; }
-        public System.DateTime OutDate { get; set; }
+        public Nullable<System.DateTime> OutDate { get; set; }
         public int UserNationalId { get; set; }
         public string VehiclePlate { get; set; }
-    
+
+        [Browsable(false)]
         public virtual User User { get; set; }
+        [Browsable(false)]
         public virtual Vehicle Vehicle { get; set; }
     }
 }

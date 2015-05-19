@@ -14,9 +14,19 @@ namespace ParkNow.DataAccess
             _dbSet = context.Set<TEntity>();
         }
 
-        public IQueryable<TEntity> Get()
+        public IQueryable<TEntity> Get(string includeProperties = "")
         {
-            return _dbSet;
+            IQueryable<TEntity> query = _dbSet;
+
+            foreach (string property in includeProperties.Trim().Split(','))
+            {
+                if (property != string.Empty)
+                {
+                    query.Include(property);
+                }
+            }
+
+            return query;
         }
 
         public TEntity GetById(object id)
@@ -26,13 +36,17 @@ namespace ParkNow.DataAccess
 
         public TEntity Insert(TEntity entity)
         {
-            return _dbSet.Add(entity);
+            var insertedEntity = _dbSet.Add(entity);
+            _context.SaveChanges();
+
+            return insertedEntity;
         }
 
         public void Update(TEntity entityToUpdate)
         {
             _dbSet.Attach(entityToUpdate);
             _context.Entry(entityToUpdate).State = EntityState.Modified;
+            _context.SaveChanges();
         }
 
         public void Delete(object id)
@@ -43,11 +57,14 @@ namespace ParkNow.DataAccess
             {
                 Delete(entityToDelete);
             }
+
+            _context.SaveChanges();
         }
 
         public void Delete(TEntity entityToDelete)
         {
             _dbSet.Remove(entityToDelete);
+            _context.SaveChanges();
         }
     }
 }
