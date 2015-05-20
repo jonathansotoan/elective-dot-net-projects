@@ -13,7 +13,7 @@ namespace ParkNow.DataAccess
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    internal partial class ParkNowContext : DbContext
+    public partial class ParkNowContext : DbContext
     {
         public ParkNowContext()
             : base("name=ParkNowContext")

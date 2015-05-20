@@ -2,7 +2,7 @@
 {
     public class ParkNowRepo<TEntity> : Repository<TEntity> where TEntity : class
     {
-        public ParkNowRepo() : base(new ParkNowContext())
+        public ParkNowRepo() : base(DependenciesContainer.ParkNowContext)
         {
         }
     }

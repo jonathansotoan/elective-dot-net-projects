@@ -121,7 +121,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ParkNow.Context" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
-        <EntityContainer Name="ParkNowContext" annotation:LazyLoadingEnabled="true" cg:TypeAccess="Internal">
+        <EntityContainer Name="ParkNowContext" annotation:LazyLoadingEnabled="true" cg:TypeAccess="Public">
           <EntitySet Name="Users" EntityType="ParkNow.Context.User" />
           <EntitySet Name="Vehicles" EntityType="ParkNow.Context.Vehicle" />
           <EntitySet Name="Parkings" EntityType="ParkNow.Context.Parking" />
@@ -148,7 +148,7 @@
           <Member Name="Administrator" />
           <Member Name="Employee" />
         </EnumType>
-        <EntityType Name="Vehicle">
+        <EntityType Name="Vehicle" Abstract="true">
           <Key>
             <PropertyRef Name="Plate" />
           </Key>

@@ -52,6 +52,7 @@
     <Compile Include="Car.cs">
       <DependentUpon>ParkNowContextGeneratedCode.tt</DependentUpon>
     </Compile>
+    <Compile Include="DependenciesContainer.cs" />
     <Compile Include="Motorcicle.cs">
       <DependentUpon>ParkNowContextGeneratedCode.tt</DependentUpon>
     </Compile>

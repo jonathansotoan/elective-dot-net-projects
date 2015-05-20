@@ -33,6 +33,7 @@
             this.btnSaveParking = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.dtgrLastParkings = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrLastParkings)).BeginInit();
             this.SuspendLayout();
@@ -75,11 +76,21 @@
             this.dtgrLastParkings.Size = new System.Drawing.Size(500, 150);
             this.dtgrLastParkings.TabIndex = 2;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 265);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Parkings for this session";
+            // 
             // ParkingManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(530, 471);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dtgrLastParkings);
             this.Controls.Add(this.btnSaveParking);
             this.Controls.Add(this.txtVehiclePlate);
@@ -98,5 +109,6 @@
         private System.Windows.Forms.Button btnSaveParking;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.DataGridView dtgrLastParkings;
+        private System.Windows.Forms.Label label1;
     }
 }

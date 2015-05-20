@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/19/2015 11:28:40
+-- Date Created: 05/19/2015 23:53:34
 -- Generated from EDMX file: C:\Users\aarroyave\Documents\JS\elective\ParkNow\ParkNow.DataAccess\ParkNowContext.edmx
 -- --------------------------------------------------
 

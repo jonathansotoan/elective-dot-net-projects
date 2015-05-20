@@ -12,7 +12,7 @@ namespace ParkNow.DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Vehicle
+    public abstract partial class Vehicle
     {
         public Vehicle()
         {
@@ -22,5 +22,9 @@ namespace ParkNow.DataAccess
         public string Plate { get; set; }
     
         public virtual ICollection<Parking> Parkings { get; set; }
+
+
+        public abstract decimal HourPrice { get; }
+        public abstract decimal HalfHourPrice { get; }
     }
 }

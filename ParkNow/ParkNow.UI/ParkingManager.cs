@@ -1,4 +1,5 @@
-﻿using ParkNow.Application;
+﻿using System.Linq;
+using ParkNow.Application;
 using ParkNow.DataAccess;
 using System;
 using System.Collections.Generic;
@@ -31,19 +32,20 @@ namespace ParkNow.UI
                 return;
             }
 
-            if (!Regex.IsMatch(txtVehiclePlate.Text, "[A-Z]{3}[0-9]{3}"))
+            if (!(Regex.IsMatch(txtVehiclePlate.Text, "[A-Z]{3}[0-9]{3}") ||
+                  Regex.IsMatch(txtVehiclePlate.Text, "[A-Z]{3}[0-9]{2}[A-D]")))
             {
-                errorProvider.SetError(txtVehiclePlate, "The plate must have 3 letters and 3 numbers without spaces");
+                errorProvider.SetError(txtVehiclePlate, "The plate must have either 3 letters and 3 numbers without spaces or 3 letters, 2 numbers and a letter between A and D");
                 return;
             }
 
-            var newParking = new Parking
-            {
-                Vehicle = new Vehicle {Plate = txtVehiclePlate.Text}
-            };
+            var newParking = _parkingService.OperateParking(txtVehiclePlate.Text);
 
-            _parkingService.InsertParking(newParking);
-            _sessionParkings.Add(newParking);
+            if (!_sessionParkings.Any(
+                    parking => parking.VehiclePlate == newParking.VehiclePlate && parking.OutDate != null))
+            {
+                _sessionParkings.Add(newParking);
+            }
 
             dtgrLastParkings.DataSource = null;
             dtgrLastParkings.DataSource = _sessionParkings;
