@@ -14,5 +14,14 @@ namespace ParkNow.DataAccess
     
     public partial class Motorcicle : Vehicle
     {
+        public decimal HourPrice
+        {
+            get { return 1100; }
+        }
+
+        public decimal HalfHourPrice
+        {
+            get { return HourPrice * (decimal)0.5; }
+        }
     }
 }
