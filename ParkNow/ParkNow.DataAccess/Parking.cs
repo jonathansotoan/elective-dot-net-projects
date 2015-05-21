@@ -25,5 +25,15 @@ namespace ParkNow.DataAccess
         public virtual User User { get; set; }
         [Browsable(false)]
         public virtual Vehicle Vehicle { get; set; }
+
+        public TimeSpan? TotalTime
+        {
+            get { return (OutDate ?? DateTime.Now) - InDate; }
+        }
+
+        public decimal Cost
+        {
+            get { return Vehicle.HourPrice * (decimal) Math.Ceiling(TotalTime.Value.TotalHours); }
+        }
     }
 }

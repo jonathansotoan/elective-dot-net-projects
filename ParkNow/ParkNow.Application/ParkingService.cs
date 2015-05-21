@@ -61,16 +61,19 @@
         {
             var reportBody = new StringBuilder();
 
-            GetParkings("User").Where(parking =>
+            GetParkings("User, Vehicle").Where(parking =>
                 (parking.InDate >= startDate && parking.InDate <= endDate)
                 || (parking.OutDate >= startDate && parking.OutDate <= endDate)).ToList().ForEach(parking =>
                 reportBody.Append("\n\n--- Report ---\n")
                 .Append("\nId:                  ").Append(parking.Id)
                 .Append("\nPlate:               ").Append(parking.VehiclePlate)
                 .Append("\nEmployee:            ").Append(parking.User)
-                .Append("\nEntrance time:       ").Append(parking.InDate));
+                .Append("\nEntrance time:       ").Append(parking.InDate)
+                .Append("\nOutput time:         ").Append(parking.OutDate == null ? "Still inside" : parking.OutDate.ToString())
+                .Append("\nTotal time:          ").Append(parking.TotalTime)
+                .Append("\nCost:                ").Append(parking.Cost));
 
-            new PdfService().OpenPdfReport("ReportByDates.pdf", "Report by dates", reportBody.ToString());
+            new PdfService().OpenPdfReport("ReportByDates - " + DateTime.Now + ".pdf", "Report by dates", reportBody.ToString());
         }
 
 
@@ -87,8 +90,6 @@
 
         private void OpenOutputReport(Parking parking)
         {
-            TimeSpan? parkingTime = parking.OutDate - parking.InDate;
-
             var reportBody = new StringBuilder()
                 .Append("\nId:                  ").Append(parking.Id)
                 .Append("\nType:                ").Append(parking.Vehicle.GetType().Name.Split('_').First())
@@ -96,8 +97,8 @@
                 .Append("\nEmployee:            ").Append(parking.User)
                 .Append("\nEntrance time:       ").Append(parking.InDate)
                 .Append("\nOutput time:         ").Append(parking.OutDate)
-                .Append("\nTotal time:          ").Append(parkingTime)
-                .Append("\nTotal money:         ").Append(parking.Vehicle.HourPrice * (decimal)Math.Ceiling(parkingTime.Value.TotalHours));
+                .Append("\nTotal time:          ").Append(parking.TotalTime)
+                .Append("\nTotal money:         ").Append(parking.Cost);
 
             new PdfService().OpenPdfReport("OutputReport" + parking.Id + ".pdf", "Output Report of vehicle with plate " + parking.VehiclePlate, reportBody.ToString());
         }

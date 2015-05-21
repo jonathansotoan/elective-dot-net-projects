@@ -114,6 +114,7 @@ namespace ParkNow.UI
             }
 
             _userService.LogOut();
+            MdiChildren.ToList().ForEach(child => child.Close());
             MessageBox.Show("You have successfully logged out");
         }
     }
