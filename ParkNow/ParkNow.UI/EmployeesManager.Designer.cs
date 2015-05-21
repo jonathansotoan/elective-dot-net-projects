@@ -41,6 +41,7 @@
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtPasswordConfirmation = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrEmployees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -105,7 +106,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(163, 174);
+            this.btnAdd.Location = new System.Drawing.Point(111, 177);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 7;
@@ -115,7 +116,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(54, 174);
+            this.btnDelete.Location = new System.Drawing.Point(12, 177);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 8;
@@ -144,11 +145,22 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Confirm Password";
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(208, 177);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 11;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // EmployeesManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(298, 386);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.txtPasswordConfirmation);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnDelete);
@@ -183,5 +195,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.TextBox txtPasswordConfirmation;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

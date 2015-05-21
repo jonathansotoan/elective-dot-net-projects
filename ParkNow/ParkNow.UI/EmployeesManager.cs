@@ -24,10 +24,73 @@ namespace ParkNow.UI
 
         private void btnAdd_Click(object sender, System.EventArgs e)
         {
-            errorProvider.Clear();
-            bool errorRaised = false;
+            if (IsThereAWrongInput())
+            {
+                return;
+            }
 
+            if (_userService.GetById(int.Parse(txtNationalId.Text)) != null)
+            {
+                errorProvider.SetError(txtNationalId, "There is already an employee with this national identification");
+                return;
+            }
+
+            var insertedEmployee = _userService.InsertUser(
+            new User
+            {
+                NationalId = int.Parse(txtNationalId.Text),
+                Username = txtUsername.Text,
+                Password = txtPassword.Text,
+                Role = Role.Employee
+            });
+
+            _employees.Add(insertedEmployee);
+            RefreshDatagrid();
+        }
+
+        private void btnDelete_Click(object sender, System.EventArgs e)
+        {
+            errorProvider.Clear();
+            var userToDelete = (User) dtgrEmployees.SelectedCells[0].OwningRow.DataBoundItem;
+
+            if (userToDelete.Role == Role.Administrator)
+            {
+                errorProvider.SetError(btnDelete, "You cannot delete an administrator");
+                return;
+            }
+
+            _userService.DeleteUser(userToDelete.NationalId);
+            _employees.Remove(userToDelete);
+            RefreshDatagrid();
+        }
+
+        private void RefreshDatagrid()
+        {
+            dtgrEmployees.DataSource = null;
+            dtgrEmployees.DataSource = _employees;
+        }
+
+        private void btnUpdate_Click(object sender, System.EventArgs e)
+        {
+            if (IsThereAWrongInput())
+            {
+                return;
+            }
+
+            User employeeToUpdate = _employees.Find(employee => employee.NationalId == int.Parse(txtNationalId.Text));
+            employeeToUpdate.Username = txtUsername.Text;
+            employeeToUpdate.Password = txtPassword.Text;
+            _userService.UpdateUser(employeeToUpdate);
+            RefreshDatagrid();
+        }
+
+        private bool IsThereAWrongInput()
+        {
+            errorProvider.Clear();
+
+            bool errorRaised = false;
             int nationalIdForNewUser;
+
             if (!int.TryParse(txtNationalId.Text, out nationalIdForNewUser))
             {
                 errorProvider.SetError(txtNationalId, "The provided national id is not a number");
@@ -66,44 +129,7 @@ namespace ParkNow.UI
                 errorRaised = true;
             }
 
-            if (errorRaised)
-            {
-                return;
-            }
-
-            var insertedEmployee = _userService.InsertUser(
-            new User
-            {
-                NationalId = nationalIdForNewUser,
-                Username = txtUsername.Text,
-                Password = txtPassword.Text,
-                Role = Role.Employee
-            });
-
-            _employees.Add(insertedEmployee);
-            RefreshDatagrid();
-        }
-
-        private void btnDelete_Click(object sender, System.EventArgs e)
-        {
-            errorProvider.Clear();
-            var userToDelete = (User) dtgrEmployees.SelectedCells[0].OwningRow.DataBoundItem;
-
-            if (userToDelete.Role == Role.Administrator)
-            {
-                errorProvider.SetError(btnDelete, "You cannot delete an administrator");
-                return;
-            }
-
-            _userService.DeleteUser(userToDelete.NationalId);
-            _employees.Remove(userToDelete);
-            RefreshDatagrid();
-        }
-
-        private void RefreshDatagrid()
-        {
-            dtgrEmployees.DataSource = null;
-            dtgrEmployees.DataSource = _employees;
+            return errorRaised;
         }
     }
 }
