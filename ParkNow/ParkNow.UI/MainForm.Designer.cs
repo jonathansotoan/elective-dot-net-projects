@@ -35,6 +35,7 @@
             this.administratorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeesManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +54,7 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logInToolStripMenuItem,
+            this.logOutToolStripMenuItem,
             this.parkingManagerToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
@@ -61,15 +63,16 @@
             // logInToolStripMenuItem
             // 
             this.logInToolStripMenuItem.Name = "logInToolStripMenuItem";
-            this.logInToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logInToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.logInToolStripMenuItem.Text = "Log in...";
             this.logInToolStripMenuItem.Click += new System.EventHandler(this.logInToolStripMenuItem_Click);
             // 
             // parkingManagerToolStripMenuItem
             // 
             this.parkingManagerToolStripMenuItem.Name = "parkingManagerToolStripMenuItem";
-            this.parkingManagerToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.parkingManagerToolStripMenuItem.Text = "Parking Manager";
+            this.parkingManagerToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.parkingManagerToolStripMenuItem.Text = "Parking Manager...";
+            this.parkingManagerToolStripMenuItem.Click += new System.EventHandler(this.parkingManagerToolStripMenuItem_Click);
             // 
             // administratorToolStripMenuItem
             // 
@@ -85,12 +88,21 @@
             this.employeesManagerToolStripMenuItem.Name = "employeesManagerToolStripMenuItem";
             this.employeesManagerToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.employeesManagerToolStripMenuItem.Text = "Employees Manager";
+            this.employeesManagerToolStripMenuItem.Click += new System.EventHandler(this.employeesManagerToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.reportsToolStripMenuItem.Text = "Reports";
+            this.reportsToolStripMenuItem.Click += new System.EventHandler(this.reportsToolStripMenuItem_Click);
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.logOutToolStripMenuItem.Text = "Log out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -119,6 +131,7 @@
         private System.Windows.Forms.ToolStripMenuItem administratorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem employeesManagerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
 
     }
 }

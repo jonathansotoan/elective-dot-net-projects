@@ -26,7 +26,6 @@ namespace ParkNow.Application
 
         public User GetLoggedUser()
         {
-            return _usersRepository.Get().First();
             return _loggedUser;
         }
 
@@ -51,6 +50,11 @@ namespace ParkNow.Application
             
             _loggedUser = userToLogIn;
             return _loggedUser.Role;
+        }
+
+        public void LogOut()
+        {
+            _loggedUser = null;
         }
 
 

@@ -57,6 +57,22 @@
             return attachedParking;
         }
 
+        public void OpenReportBetween(DateTime startDate, DateTime endDate)
+        {
+            var reportBody = new StringBuilder();
+
+            GetParkings("User").Where(parking =>
+                (parking.InDate >= startDate && parking.InDate <= endDate)
+                || (parking.OutDate >= startDate && parking.OutDate <= endDate)).ToList().ForEach(parking =>
+                reportBody.Append("\n\n--- Report ---\n")
+                .Append("\nId:                  ").Append(parking.Id)
+                .Append("\nPlate:               ").Append(parking.VehiclePlate)
+                .Append("\nEmployee:            ").Append(parking.User)
+                .Append("\nEntrance time:       ").Append(parking.InDate));
+
+            new PdfService().OpenPdfReport("ReportByDates.pdf", "Report by dates", reportBody.ToString());
+        }
+
 
         private void OpenEntranceReport(Parking parking)
         {
@@ -84,20 +100,6 @@
                 .Append("\nTotal money:         ").Append(parking.Vehicle.HourPrice * (decimal)Math.Ceiling(parkingTime.Value.TotalHours));
 
             new PdfService().OpenPdfReport("OutputReport" + parking.Id + ".pdf", "Output Report of vehicle with plate " + parking.VehiclePlate, reportBody.ToString());
-        }
-
-        public void OpenReportBetween(DateTime startDate, DateTime endDate)
-        {
-            var reportBody = new StringBuilder();
-
-            GetParkings("User").ToList().ForEach(parking =>
-                reportBody.Append("\n\n--- Report ---\n")
-                .Append("\nId:                  ").Append(parking.Id)
-                .Append("\nPlate:               ").Append(parking.VehiclePlate)
-                .Append("\nEmployee:            ").Append(parking.User)
-                .Append("\nEntrance time:       ").Append(parking.InDate));
-
-            new PdfService().OpenPdfReport("ReportByDates.pdf", "Report by dates", reportBody.ToString());
         }
     }
 }

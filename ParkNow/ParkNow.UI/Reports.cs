@@ -1,9 +1,6 @@
-﻿using System;
-using System.Linq;
-using System.Text;
+﻿using ParkNow.Application;
+using System;
 using System.Windows.Forms;
-using ParkNow.Application;
-using ParkNow.DataAccess;
 
 namespace ParkNow.UI
 {
@@ -11,10 +8,11 @@ namespace ParkNow.UI
     {
         private readonly ParkingService _parkingService;
 
-        public Reports()
+        public Reports(Form mdiParent)
         {
             InitializeComponent();
             _parkingService = new ParkingService();
+            MdiParent = mdiParent;
         }
 
         private void btnShowReport_Click(object sender, EventArgs e)
