@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel;
+
 namespace ParkNow.DataAccess
 {
     using System;
@@ -24,6 +26,7 @@ namespace ParkNow.DataAccess
         public string Password { get; set; }
         public Role Role { get; set; }
     
+        [Browsable(false)]
         public virtual ICollection<Parking> Parkings { get; set; }
 
 
