@@ -23,6 +23,8 @@ namespace ParkNow.DataAccess
     
         public int NationalId { get; set; }
         public string Username { get; set; }
+
+        [Browsable(false)]
         public string Password { get; set; }
         public Role Role { get; set; }
     

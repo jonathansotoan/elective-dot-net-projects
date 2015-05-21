@@ -14,6 +14,11 @@ namespace ParkNow.Application
             _usersRepository = usersRepository ?? new ParkNowRepo<User>();
         }
 
+        public IQueryable<User> GetUsers(string includeProperties = "")
+        {
+            return _usersRepository.Get(includeProperties);
+        }
+
         public User InsertUser(User userToInsert)
         {
             return _usersRepository.Insert(userToInsert);

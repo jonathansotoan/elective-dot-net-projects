@@ -32,7 +32,7 @@
     <Key>
       <PropertyRef Name="NationalId" />
     </Key>
-    <Property Name="NationalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NationalId" Type="int" Nullable="false" />
     <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Role" Type="int" Nullable="false" />
@@ -138,7 +138,7 @@
           <Key>
             <PropertyRef Name="NationalId" />
           </Key>
-          <Property Name="NationalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NationalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="Username" Type="String" Nullable="false" />
           <Property Name="Password" Type="String" Nullable="false" />
           <Property Name="Role" Type="ParkNow.Context.Role" Nullable="false" cg:GetterAccess="Public" />

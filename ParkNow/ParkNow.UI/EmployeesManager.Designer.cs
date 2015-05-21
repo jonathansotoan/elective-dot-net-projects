@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.dtgrEmployees = new System.Windows.Forms.DataGridView();
             this.txtNationalId = new System.Windows.Forms.TextBox();
@@ -37,13 +38,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtPasswordConfirmation = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrEmployees)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 24);
+            this.label1.Location = new System.Drawing.Point(51, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 0;
@@ -51,22 +56,23 @@
             // 
             // dtgrEmployees
             // 
+            this.dtgrEmployees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dtgrEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgrEmployees.Location = new System.Drawing.Point(12, 165);
+            this.dtgrEmployees.Location = new System.Drawing.Point(12, 224);
             this.dtgrEmployees.Name = "dtgrEmployees";
-            this.dtgrEmployees.Size = new System.Drawing.Size(240, 150);
+            this.dtgrEmployees.Size = new System.Drawing.Size(271, 150);
             this.dtgrEmployees.TabIndex = 1;
             // 
             // txtNationalId
             // 
-            this.txtNationalId.Location = new System.Drawing.Point(99, 21);
+            this.txtNationalId.Location = new System.Drawing.Point(138, 24);
             this.txtNationalId.Name = "txtNationalId";
             this.txtNationalId.Size = new System.Drawing.Size(100, 20);
             this.txtNationalId.TabIndex = 2;
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(99, 56);
+            this.txtUsername.Location = new System.Drawing.Point(138, 59);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(100, 20);
             this.txtUsername.TabIndex = 4;
@@ -74,7 +80,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 59);
+            this.label2.Location = new System.Drawing.Point(51, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 3;
@@ -82,15 +88,16 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(99, 93);
+            this.txtPassword.Location = new System.Drawing.Point(138, 96);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 6;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 96);
+            this.label3.Location = new System.Drawing.Point(51, 99);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 5;
@@ -98,7 +105,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(124, 119);
+            this.btnAdd.Location = new System.Drawing.Point(163, 174);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 7;
@@ -108,7 +115,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(43, 119);
+            this.btnDelete.Location = new System.Drawing.Point(54, 174);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 8;
@@ -116,11 +123,34 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
+            // txtPasswordConfirmation
+            // 
+            this.txtPasswordConfirmation.Location = new System.Drawing.Point(138, 131);
+            this.txtPasswordConfirmation.Name = "txtPasswordConfirmation";
+            this.txtPasswordConfirmation.Size = new System.Drawing.Size(100, 20);
+            this.txtPasswordConfirmation.TabIndex = 10;
+            this.txtPasswordConfirmation.UseSystemPasswordChar = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(38, 134);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Confirm Password";
+            // 
             // EmployeesManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 327);
+            this.ClientSize = new System.Drawing.Size(298, 386);
+            this.Controls.Add(this.txtPasswordConfirmation);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtPassword);
@@ -133,6 +163,7 @@
             this.Name = "EmployeesManager";
             this.Text = "EmployeesManager";
             ((System.ComponentModel.ISupportInitialize)(this.dtgrEmployees)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,5 +180,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.TextBox txtPasswordConfirmation;
+        private System.Windows.Forms.Label label4;
     }
 }

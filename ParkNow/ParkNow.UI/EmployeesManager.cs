@@ -1,4 +1,6 @@
-﻿namespace ParkNow.UI
+﻿using System.Linq;
+
+namespace ParkNow.UI
 {
     using DataAccess;
     using System.Collections.Generic;
@@ -16,28 +18,92 @@
             MdiParent = mdiParent;
             _employees = new List<User>();
             _userService = new UserService();
+            _employees = _userService.GetUsers().ToList();
+            RefreshDatagrid();
         }
 
         private void btnAdd_Click(object sender, System.EventArgs e)
         {
+            errorProvider.Clear();
+            bool errorRaised = false;
+
+            int nationalIdForNewUser;
+            if (!int.TryParse(txtNationalId.Text, out nationalIdForNewUser))
+            {
+                errorProvider.SetError(txtNationalId, "The provided national id is not a number");
+                errorRaised = true;
+            }
+
+            if (txtNationalId.Text == string.Empty)
+            {
+                errorProvider.SetError(txtNationalId, "A national id must be provided");
+                errorRaised = true;
+            }
+
+            if (txtUsername.Text == string.Empty)
+            {
+                errorProvider.SetError(txtUsername, "An username must be provided");
+                errorRaised = true;
+            }
+
+            if (txtPassword.Text == string.Empty)
+            {
+                errorProvider.SetError(txtPassword, "A password must be provided");
+                errorRaised = true;
+            }
+
+            if (txtPassword.Text != txtPasswordConfirmation.Text)
+            {
+                const string message = "The passwords are not equal";
+                errorProvider.SetError(txtPassword, message);
+                errorProvider.SetError(txtPasswordConfirmation, message);
+                errorRaised = true;
+            }
+
+            if (_userService.GetUsers().Any(user => user.Username == txtUsername.Text))
+            {
+                errorProvider.SetError(btnAdd, "An user with the specified username already exists");
+                errorRaised = true;
+            }
+
+            if (errorRaised)
+            {
+                return;
+            }
+
             var insertedEmployee = _userService.InsertUser(
             new User
             {
+                NationalId = nationalIdForNewUser,
                 Username = txtUsername.Text,
                 Password = txtPassword.Text,
                 Role = Role.Employee
             });
 
             _employees.Add(insertedEmployee);
-            dtgrEmployees.DataSource = null;
-            dtgrEmployees.DataSource = _employees;
+            RefreshDatagrid();
         }
 
         private void btnDelete_Click(object sender, System.EventArgs e)
         {
-            var userToDelete = (User) dtgrEmployees.SelectedRows[0].DataBoundItem;
+            errorProvider.Clear();
+            var userToDelete = (User) dtgrEmployees.SelectedCells[0].OwningRow.DataBoundItem;
+
+            if (userToDelete.Role == Role.Administrator)
+            {
+                errorProvider.SetError(btnDelete, "You cannot delete an administrator");
+                return;
+            }
+
             _userService.DeleteUser(userToDelete.NationalId);
             _employees.Remove(userToDelete);
+            RefreshDatagrid();
+        }
+
+        private void RefreshDatagrid()
+        {
+            dtgrEmployees.DataSource = null;
+            dtgrEmployees.DataSource = _employees;
         }
     }
 }
