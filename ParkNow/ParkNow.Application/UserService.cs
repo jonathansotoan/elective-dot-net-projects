@@ -14,10 +14,20 @@ namespace ParkNow.Application
             _usersRepository = usersRepository ?? new ParkNowRepo<User>();
         }
 
+        public User InsertUser(User userToInsert)
+        {
+            return _usersRepository.Insert(userToInsert);
+        }
+
         public User GetLoggedUser()
         {
             return _usersRepository.Get().First();
             return _loggedUser;
+        }
+
+        public void DeleteUser(int userToDeleteId)
+        {
+            _usersRepository.Delete(userToDeleteId);
         }
 
         public void SetLoggedUser(User loggedUser)
@@ -25,21 +35,17 @@ namespace ParkNow.Application
             _loggedUser = loggedUser;
         }
 
-        public void LogIn(string username, string password)
+        public Role LogIn(string username, string password)
         {
-            var userToLogIn = new User
-            {
-                Username = username,
-                Password = password
-            };
+            var userToLogIn = _usersRepository.Get().FirstOrDefault(user => user.Username == username && user.Password == password);
 
-            if (DoesUserExist(username, password))
+            if (userToLogIn == null)
             {
-                _loggedUser = userToLogIn;
-                return;
+                throw new Exception("Your username/password pair is not right");
             }
-
-            throw new Exception("Your username/password pair is not right");
+            
+            _loggedUser = userToLogIn;
+            return _loggedUser.Role;
         }
 
 

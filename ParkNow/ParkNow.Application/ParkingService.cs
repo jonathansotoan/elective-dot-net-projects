@@ -16,6 +16,11 @@
             _userService = DependenciesContainer.UserService;
         }
 
+        public IQueryable<Parking> GetParkings(string includeProperties = "")
+        {
+            return _parkingsRepository.Get(includeProperties);
+        }
+
         public Parking OperateParking(string vehiclePlate)
         {
             if (vehiclePlate == null && vehiclePlate == string.Empty)
@@ -76,9 +81,23 @@
                 .Append("\nEntrance time:       ").Append(parking.InDate)
                 .Append("\nOutput time:         ").Append(parking.OutDate)
                 .Append("\nTotal time:          ").Append(parkingTime)
-                .Append("\nTotal money:         ").Append(parking.Vehicle.HourPrice * (decimal) Math.Ceiling(parkingTime.Value.TotalHours));
+                .Append("\nTotal money:         ").Append(parking.Vehicle.HourPrice * (decimal)Math.Ceiling(parkingTime.Value.TotalHours));
 
             new PdfService().OpenPdfReport("OutputReport" + parking.Id + ".pdf", "Output Report of vehicle with plate " + parking.VehiclePlate, reportBody.ToString());
+        }
+
+        public void OpenReportBetween(DateTime startDate, DateTime endDate)
+        {
+            var reportBody = new StringBuilder();
+
+            GetParkings("User").ToList().ForEach(parking =>
+                reportBody.Append("\n\n--- Report ---\n")
+                .Append("\nId:                  ").Append(parking.Id)
+                .Append("\nPlate:               ").Append(parking.VehiclePlate)
+                .Append("\nEmployee:            ").Append(parking.User)
+                .Append("\nEntrance time:       ").Append(parking.InDate));
+
+            new PdfService().OpenPdfReport("ReportByDates.pdf", "Report by dates", reportBody.ToString());
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ParkNow.Application;
+using ParkNow.DataAccess;
 using System;
 using System.Windows.Forms;
 
@@ -21,9 +22,18 @@ namespace ParkNow.UI
             errorProvider.Clear();
             try
             {
-                _userService.LogIn(txtUsername.Text, txtPassword.Text);
-                new ParkingManager(_parent).Show();
-                Close();
+                Role loggedUseRole = _userService.LogIn(txtUsername.Text, txtPassword.Text);
+
+                if (loggedUseRole == Role.Employee)
+                {
+                    new ParkingManager(_parent).Show();
+                    Close();
+                }
+                else if (loggedUseRole == Role.Administrator)
+                {
+                    new EmployeesManager(_parent).Show();
+                    Close();
+                }
             }
             catch (Exception exception)
             {

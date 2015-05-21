@@ -13,7 +13,7 @@ namespace ParkNow.UI
             //_loginForm = new Login(this);
             //_loginForm.Show();
             //_loginForm.Closed += (obj, eventArgs) => _loginForm = null;
-            new ParkingManager(this).Show();
+            new EmployeesManager(this).Show();
         }
 
         private void logInToolStripMenuItem_Click(object sender, System.EventArgs e)
