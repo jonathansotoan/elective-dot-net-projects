@@ -4,6 +4,10 @@ using System.Windows.Forms;
 
 namespace ParkNow.UI
 {
+    /// <summary>
+    /// The form where the administrator users can take reports of the parkings between two given dates
+    /// </summary>
+    /// <!-- Author: Jonathan Soto<theja29@hotmail.com>. For licensing, e-mail me -->
     public partial class Reports : Form
     {
         private readonly ParkingService _parkingService;

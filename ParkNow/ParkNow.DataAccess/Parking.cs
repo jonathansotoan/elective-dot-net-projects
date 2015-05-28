@@ -12,7 +12,11 @@ namespace ParkNow.DataAccess
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
-    
+
+    /// <summary>
+    /// Representation of the parkings made
+    /// </summary>
+    /// <!-- Author: Jonathan Soto<theja29@hotmail.com>. For licensing, e-mail me -->
     public partial class Parking
     {
         public int Id { get; set; }

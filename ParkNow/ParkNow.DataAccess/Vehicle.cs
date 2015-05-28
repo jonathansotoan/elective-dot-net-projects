@@ -11,7 +11,11 @@ namespace ParkNow.DataAccess
 {
     using System;
     using System.Collections.Generic;
-    
+
+    /// <summary>
+    /// Representation of the vehicles that get into the parking. These could be cars or motorcicles
+    /// </summary>
+    /// <!-- Author: Jonathan Soto<theja29@hotmail.com>. For licensing, e-mail me -->
     public abstract partial class Vehicle
     {
         public Vehicle()

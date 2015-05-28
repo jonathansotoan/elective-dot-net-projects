@@ -4,6 +4,10 @@
     using PdfSharp.Pdf;
     using System.Diagnostics;
 
+    /// <summary>
+    /// A service that makes it easier to make a report in a .pdf file
+    /// </summary>
+    /// <!-- Author: Jonathan Soto<theja29@hotmail.com>. For licensing, e-mail me -->
     public class PdfService
     {
         private const int LineHeight = 20;

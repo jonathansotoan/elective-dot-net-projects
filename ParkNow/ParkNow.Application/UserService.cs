@@ -4,6 +4,10 @@ using System.Linq;
 
 namespace ParkNow.Application
 {
+    /// <summary>
+    /// Performs the required operations within users for the application to work
+    /// </summary>
+    /// <!-- Author: Jonathan Soto<theja29@hotmail.com>. For licensing, e-mail me -->
     public class UserService
     {
         private readonly Repository<User> _usersRepository;

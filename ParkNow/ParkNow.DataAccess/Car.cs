@@ -11,7 +11,11 @@ namespace ParkNow.DataAccess
 {
     using System;
     using System.Collections.Generic;
-    
+
+    /// <summary>
+    /// Representation of the cars that get into the parking
+    /// </summary>
+    /// <!-- Author: Jonathan Soto<theja29@hotmail.com>. For licensing, e-mail me -->
     public partial class Car : Vehicle
     {
         public override decimal HourPrice

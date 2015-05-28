@@ -5,6 +5,10 @@
     using System.Linq;
     using System.Text;
 
+    /// <summary>
+    /// The service that operates the inputs and outputs of vehicles to the parking
+    /// </summary>
+    /// <!-- Author: Jonathan Soto<theja29@hotmail.com>. For licensing, e-mail me -->
     public class ParkingService
     {
         private readonly Repository<Parking> _parkingsRepository;

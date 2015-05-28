@@ -8,6 +8,11 @@ using System.Windows.Forms;
 
 namespace ParkNow.UI
 {
+    /// <summary>
+    /// The main view. Here, the employees can insert plates and they are going to be operated
+    /// (according whether the vehicle is inside or outside the parking)
+    /// </summary>
+    /// <!-- Author: Jonathan Soto<theja29@hotmail.com>. For licensing, e-mail me -->
     public partial class ParkingManager : Form
     {
         private readonly ParkingService _parkingService;

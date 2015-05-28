@@ -10,7 +10,11 @@
 namespace ParkNow.DataAccess
 {
     using System;
-    
+
+    /// <summary>
+    /// The roles that an user can have. An administrator is also an employee logically
+    /// </summary>
+    /// <!-- Author: Jonathan Soto<theja29@hotmail.com>. For licensing, e-mail me -->
     public enum Role : int
     {
         Administrator = 0,

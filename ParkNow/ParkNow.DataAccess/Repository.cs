@@ -3,6 +3,10 @@ using System.Linq;
 
 namespace ParkNow.DataAccess
 {
+    /// <summary>
+    /// A generic repository that is used to access any entity of a specified DbContext stored in the DB
+    /// </summary>
+    /// <!-- Author: Jonathan Soto<theja29@hotmail.com>. For licensing, e-mail me -->
     public class Repository<TEntity> where TEntity : class
     {
         private readonly DbContext _context;

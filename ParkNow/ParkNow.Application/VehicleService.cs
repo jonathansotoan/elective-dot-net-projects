@@ -3,6 +3,10 @@
     using DataAccess;
     using System.Text.RegularExpressions;
 
+    /// <summary>
+    /// Performs required CRUD operations related with vehicles (including Cars and Motorcicles)
+    /// </summary>
+    /// <!-- Author: Jonathan Soto<theja29@hotmail.com>. For licensing, e-mail me -->
     public class VehicleService
     {
         private readonly Repository<Vehicle> _vehiclesRepository;

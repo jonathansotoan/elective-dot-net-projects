@@ -5,6 +5,10 @@ using ParkNow.DataAccess;
 
 namespace ParkNow.UI
 {
+    /// <summary>
+    /// Container of the other Forms (as a MdiParent)
+    /// </summary>
+    /// <!-- Author: Jonathan Soto<theja29@hotmail.com>. For licensing, e-mail me -->
     public partial class MainForm : Form
     {
         private Login _loginForm;

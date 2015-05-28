@@ -7,6 +7,10 @@ namespace ParkNow.UI
     using System.Windows.Forms;
     using Application;
 
+    /// <summary>
+    /// A view that makes it easy to perform CRUD operations on employees entities
+    /// </summary>
+    /// <!-- Author: Jonathan Soto<theja29@hotmail.com>. For licensing, e-mail me -->
     public partial class EmployeesManager : Form
     {
         private readonly List<User> _employees;

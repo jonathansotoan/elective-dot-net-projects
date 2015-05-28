@@ -5,6 +5,10 @@ using System.Windows.Forms;
 
 namespace ParkNow.UI
 {
+    /// <summary>
+    /// The start point of the application for the user. Here, the user must log in to access the core features
+    /// </summary>
+    /// <!-- Author: Jonathan Soto<theja29@hotmail.com>. For licensing, e-mail me -->
     public partial class Login : Form
     {
         private readonly UserService _userService;
